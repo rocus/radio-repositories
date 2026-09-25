@@ -44,11 +44,12 @@ https://github.com/rocus/streamtuner2
 
 I made two extra plugins for streamtuner-ng. One for easier access to all the radio stations of one specific country or language. One for access to your, already saved, URL's in PLS files.  
 
-https://github.com/rocus/my-stations
 
 https://github.com/rocus/country-stations
 
 https://github.com/rocus/radio-online-json-url
+
+https://github.com/rocus/my-stations
 
 
 
@@ -84,7 +85,7 @@ https://github.com/rocus/dabm3us
 
 To summerize the "normal" use of the programs and plugins:
 
-Use a webbrowser to find your radio station or play your older radio stations and play that on your PC. If you want you can stream the speaker output to icecast and let streamers connect to icecast.
+Use a webbrowser to find your radio station or play your previously chosen radio stations and play that on your PC. If you want you can stream the speaker output to icecast and let streamers connect to icecast.
 
 Use streamtuner2 the same way and/or save the current radio
 station as a PLS file in your network. 
@@ -107,7 +108,7 @@ An other problem is that they are wifi b & g based with wpa encryption. Not all 
 
 **Remote control for the SLA5520**
 
-These devices are controlled by an optical remote. That works fine but sometimes you want a remote with a bigger range for just volume control and previous and next mp3's or streams. 
+These devices are controlled by an optical remote. That works fine but sometimes you want a remote with a bigger range for just volume control and previous and next of mp3's or streams. 
 
 https://github.com/rocus/upnpremote
 
