@@ -26,12 +26,15 @@ The disadvantage of this option is that the radio program used normally does not
 
 **Integration with your streamers**
 
-Using a program or webbrowser for discovering and playing a readio stream has the problem that the actual stream URL is often not shown. That gives you, as only option for integration, rerouting the audio output of your PC to an other program like icecast.
+Using a program or webbrowser for discovering and playing a radio stream has the problem that the actual stream URL is often not shown. That gives you, as only option for integration, rerouting the audio output of your PC to an other program like icecast.
 
 https://github.com/rocus/stream-to-icecast
 
 The program streamtuner2 and streamtuner-ng give you the possibility to use the currently playing station's URL and process that for further use. Streamtuner2 can deliver PLS files, streamtuner-ng has a bookmarks.json file with the URL's of your "favorites".
 
+https://sourceforge.net/projects/streamtuner2/
+
+https://github.com/IronWolve/StreamTuner-ng
 
 **Extend the usage of streamtuner2**
 
@@ -46,7 +49,6 @@ I made two extra plugins for streamtuner-ng. One for easier access to all the ra
 
 
 https://github.com/rocus/country-stations
-
 https://github.com/rocus/radio-online-json-url
 
 https://github.com/rocus/my-stations
@@ -67,14 +69,14 @@ https://github.com/rocus/sync-streamtuner-ng
 
 **What to do with these PLS files?**
 
-Some streamers (like MPD) might be able to simply call these PLS files. My cheap Philips streamers are UPnP devices so you have to serve these files. I used to use "Ushare" (a simple UPnP server reachable for all UPnP devices in your network). That program is no longer maintained and not available on newer Linux versions. So I made my own Ushare (in Python) with the same properties.
+Some streamers (like MPD) might be able to simply call these PLS files. My cheap Philips streamers are UPnP devices so you have to serve these files. Many UPnP servers can not easily serve pls files with radio url's. That's why I used to use "Ushare" (a simple UPnP server reachable for all UPnP devices in your network). That program is no longer maintained and not available on newer Linux versions. So I made my own Ushare (in Python) with the same properties. 
 
 https://github.com/rocus/Ushare
 
 
 **How about DAB radio stations?**
 
-One of my raspberry's is a dedicated DAB server. It uses a RTL-SDR stick and a hack of the welle-cli program. Welle-cli is accessable over the network (it is headless, welle-io needs a screen). Every streamer can play a DAB radio stream but it is single user. So two streamers that request different streams will be problematic.
+One of my raspberry's is a dedicated DAB server. It uses a RTL-SDR stick and a hack of the welle-cli program. Welle-cli is accessable over the network (it is headless, welle-io needs a screen). Every streamer can play a DAB radio stream but it is single user. So two streamers that request different streams (in different "channels") will be problematic.
 
 https://github.com/rocus/welle-cli
 
@@ -89,26 +91,24 @@ Use a webbrowser to find your radio station or play your previously chosen radio
 
 Use streamtuner2 the same way and/or save the current radio
 station as a PLS file in your network. 
-Use streamtuner-ng the same way and/or mark the current radio station as favorite . A few moments later that station will appear in the favorites directory on your network. (if you want move that file to a better place)
-In both cases let the PLS files be used as input for a streamer that can read these files or let an UPnP device use this file presented by an UPnP server.
+Use streamtuner-ng the same way and/or mark the current radio station as favorite . A few moments later that station will appear in the favorites directory on your network. (if you want move that file to a better place).
+In both cases let the PLS files be used as input for a streamer that can read these files or let an UPnP device use these files presented by an UPnP server.
 
 Your saved PLS files are usable by streamtuner2 or streamtuner-ng or any player that can stream PLS files (like audacious)
 
 
 **Problems with the Philips SLA5520**
 
-These devices are, by now, 20 years old. (that's why they are cheap). Originally they were supposed to use a radio database (I think Vtuner). That was always very cumbersome but the fact that they are UPnP devices makes them still usable. The main problem with these devices is that they don't seem to support https (or TLS?). Fortunately they support a proxy server. To overcome this problem I made a small proxy server: this proxy tries the http stream requested, if that does not work change to https , depending on the result that comes back from the radio site it follows redirects, unpacks pls's unpacks https streams and delivers back a http audio stream.
+These devices are, by now, 20 years old. (that's why they are cheap). Originally they were supposed to use a radio database (I think Vtuner, now no longer functioning). That was always very cumbersome but the fact that they are UPnP devices makes them still usable. The main problem with these devices is that they don't seem to support https (or TLS?). Fortunately they support a proxy server. To overcome this problem I made a small proxy server: this proxy tries the http stream requested, if that does not work change to https , depending on the result that comes back from the radio site it follows redirects, unpacks pls's unpacks https streams and delivers back a http audio stream (possibly after decoding AAC to MP3).
 
 https://github.com/rocus/proxy-SLA5520
 
 
-An other problem with these devices is that they only play wma and mp3 streams or music files. Maybe I will try some transcoding but don't count on that.
+An other issue is that they are wifi b & g based with wpa encryption. Not all modern routers support that so find your old router somewhere.
 
-An other problem is that they are wifi b & g based with wpa encryption. Not all modern routers support that so find somewhere your old router.
+**Simple Remote for the SLA5520**
 
-**Remote control for the SLA5520**
-
-These devices are controlled by an optical remote. That works fine but sometimes you want a remote with a bigger range for just volume control and previous and next of mp3's or streams. 
+These devices are controlled by an optical remote. That works fine but sometimes you want a (wifi) remote with a bigger range for just volume control and previous and next of mp3's or streams. 
 
 https://github.com/rocus/upnpremote
 
