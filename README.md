@@ -8,7 +8,7 @@ As a big fan of radio streams/broadcasts I made some repositories about radio st
 - No dependance on companies.
 - Software mostly written in Python.
 - Multi room (but not synchronized by the second)
-- Reasonable large selection of radio stations.
+- A Reasonable large selection of radio stations.
 - Also DAB radio stations.
 
 I accomplished this with Philips radio streamers (SLA5520), raspberries (with MPD), raspberry as NAS and an old PC (with Debian). 
